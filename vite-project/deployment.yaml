@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-app
+  labels:
+    app: react-app
+spec:
+  replicas: 1  # You can scale up or down as needed
+  selector:
+    matchLabels:
+      app: react-app
+  template:
+    metadata:
+      labels:
+        app: react-app
+    spec:
+      containers:
+        - name: react-app
+          image: webapplicationtest.azurecr.io/reactapp:latest  # Replace with your ACR image path
+          ports:
+            - containerPort: 4173  # React app will be served on port 80 by Nginx
+          env:
+            - name: DOTNET_APP_SERVICE
+              value: "node-app.default.svc.cluster.local"  # Fully qualified domain name of the service
+            - name: DOTNET_APP_SERVICE_PORT
+              value: "3002"  # Port exposed by your .NET Core service
+
