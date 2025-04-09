@@ -1,18 +1,12 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: v1
+kind: Service
 metadata:
-  name: my-app-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: react-service  # Ensure this matches the service name used in the Ingress
 spec:
-  rules:
-  - host: my-app.example.com  # Replace with your actual domain
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: react-service  # Ensure this matches your service name
-            port:
-              number: 4173  # Port where your React app is running
+  selector:
+    app: react-app  # Match with the label of your React app pod
+  ports:
+    - protocol: TCP
+      port: 4173  # Port exposed externally through the service
+      targetPort: 4173  # Port the React app container is listening on
+  type: ClusterIP  # Internal service type, making it accessible within the cluster

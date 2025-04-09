@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: nginx  # This is important to associate the Ingress with the NGINX controller
   rules:
-  - host: my-app.example.com
+  - host: web.example.com
     http:
       paths:
       - path: /
