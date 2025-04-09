@@ -3,11 +3,11 @@ kind: Ingress
 metadata:
   name: my-app-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: / # Optional: Rewrite URL path if necessary
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressClassName: nginx  # This specifies that the Ingress will use the NGINX Ingress controller
+  ingressClassName: nginx  # This is important to associate the Ingress with the NGINX controller
   rules:
-  - host: my-app.example.com  # The domain name you'll use to access your app
+  - host: my-app.example.com
     http:
       paths:
       - path: /
@@ -16,4 +16,4 @@ spec:
           service:
             name: react-service
             port:
-              number: 4173  # Port on which your app service is running
+              number: 4173
