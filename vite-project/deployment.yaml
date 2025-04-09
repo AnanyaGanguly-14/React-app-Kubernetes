@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: react-app
-          image: webapplicationtest.azurecr.io/reactapp:latest  # Replace with your ACR image path
+          image: webapplicationtest.azurecr.io/react-app1:latest  # Replace with your ACR image path
           ports:
             - containerPort: 4173  # React app will be served on port 80 by Nginx
           env:

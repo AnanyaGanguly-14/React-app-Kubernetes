@@ -3,6 +3,5 @@ dist
 *.log
 .git
 .gitignore
-package.json
-package-lock.json
+
 

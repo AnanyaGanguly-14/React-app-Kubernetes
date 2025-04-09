@@ -15,6 +15,7 @@ export default defineConfig({
   },
   preview: {
     // Configure the preview server (used when you run `npm run preview`)
-    port: 4173,       // This is the default port for Vite's preview server
+    port: 4173,  
+    allowedHosts: ['my-app.example.com', 'localhost', '0.0.0.0'], // Add your domain here
   },
 })
