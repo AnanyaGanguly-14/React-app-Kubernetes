@@ -7,6 +7,6 @@ spec:
     app: react-app  # Match with the label of your React app pod
   ports:
     - protocol: TCP
-      port: 4173  # Port exposed externally through the service
-      targetPort: 4173  # Port the React app container is listening on
-  type: ClusterIP  # Internal service type, making it accessible within the cluster
+      port: 3000  # Port exposed externally through the service
+      targetPort: 3002  # Port the React app container is listening on
+  type: LoadBalancer  # Internal service type, making it accessible within the cluster
