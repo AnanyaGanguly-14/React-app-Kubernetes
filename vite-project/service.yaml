@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: react-app  # Ensure this matches the service name used in the Ingress
+  name: react-app  # Name of the service (used in Ingress or DNS if needed)
 spec:
   selector:
-    app: react-app  # Match with the label of your React app pod
+    app: react-app  # This must match the label on your Deployment
   ports:
     - protocol: TCP
-      port: 80  # Port exposed externally through the service
-      targetPort: 80  # Port the React app container is listening on
-  type: LoadBalancer  # Internal service type, making it accessible within the cluster
+      port: 80          # Exposed port (what clients connect to)
+      targetPort: 80    # Container's port (what NGINX inside the pod listens on)
+  type: LoadBalancer     # Makes the service accessible **externally** with a public IP (on AKS)

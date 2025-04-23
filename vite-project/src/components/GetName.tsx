@@ -6,15 +6,16 @@ function GetName() {
     const [loading, setLoading] = useState<boolean>(true); // Loading state
     const [error, setError] = useState<string | null>(null); // Error state
     const [selectedIndex, setSelectedIndex] = useState<number>(0); // Index for selected item
-    const [Value, setValue] = useState<Value[]>([]); // State for values
+    //const [Value, setValue] = useState<Value[]>([]); // State for values
 
-    interface Value {
-        id: number;
-        bookName: string;
-        // Define any other properties from the response as needed
-    }
+    // interface Value {
+    //     id: number;
+    //     bookName: string;
+    //     // Define any other properties from the response as needed
+    // }
 
-    const apiUrl = import.meta.env.VITE_API_URL; // Get the backend API URL from environment variable
+    const apiUrl = (window as any)._env_?.VITE_API_URL;
+    ; // Get the backend API URL from environment variable
 
     // Fetch user names from the backend API (example: /api/users)
     useEffect(() => {
@@ -43,26 +44,26 @@ function GetName() {
     }, [apiUrl]); // Only re-run if apiUrl changes
 
     // Fetch values from the backend API (example: /api/Values)
-    useEffect(() => {
-        if (!apiUrl) {
-            setError('API URL is not configured.');
-            return;
-        }
+    // useEffect(() => {
+    //     if (!apiUrl) {
+    //         setError('API URL is not configured.');
+    //         return;
+    //     }
 
-        axios.get(`${apiUrl}/api/Values`, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-            },
-        })
-        .then((response) => {
-            setValue(response.data); // Set the values data
-        })
-        .catch((error) => {
-            console.error('Error fetching values:', error);
-            setError('Error fetching values data');
-        });
-    }, [apiUrl]); // Only re-run if apiUrl changes
+    //     axios.get(`${apiUrl}/api/Values`, {
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //             'Accept': 'application/json',
+    //         },
+    //     })
+    //     .then((response) => {
+    //         setValue(response.data); // Set the values data
+    //     })
+    //     .catch((error) => {
+    //         console.error('Error fetching values:', error);
+    //         setError('Error fetching values data');
+    //     });
+    // }, [apiUrl]); // Only re-run if apiUrl changes
 
     if (loading) return <div>Loading...</div>; // Loading message
     if (error) return <div>Error: {error}</div>; // Error message
@@ -84,11 +85,11 @@ function GetName() {
 
             <br /><br />
             <h3>Values from .NET Core</h3>
-            <ul>
+            {/* <ul>
                 {Value.map((item) => (
                     <li key={item.id}>{item.bookName}</li>
                 ))}
-            </ul>
+            </ul> */}
         </>
     );
 }
