@@ -19,6 +19,7 @@ function GetName() {
     // Fetch user names from the backend API (example: /api/users)
     useEffect(() => {
         if (!apiUrl) {
+            console.log(apiUrl)
             setError('API URL is not configured.');
             setLoading(false);
             return;

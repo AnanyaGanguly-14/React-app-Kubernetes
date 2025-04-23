@@ -18,5 +18,8 @@ spec:
         - name: react-app
           image: kubernetesappdevelopment.azurecr.io/myreact-app:latest  # Replace with your ACR image path
           ports:
-            - containerPort: 80  # React app will be served on port 80 by Ngin
-
+            - containerPort: 80  # React app will be served on port 80 by Nginx
+          env:
+            - name: VITE_API_URL
+              value: "http://128.203.121.234:3002"  # URL of the Node.js app
+             # Port exposed by your .NET Core service
