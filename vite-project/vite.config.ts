@@ -13,9 +13,9 @@ export default defineConfig({
       '/api': 'http://host.docker.internal:3002',  // Use this on Docker for Mac/Windows
     },
   },
-  preview: {
-    // Configure the preview server (used when you run `npm run preview`)
-    port: 4173,  
-    allowedHosts: ['web.example.com', 'localhost', '0.0.0.0'], // Add your domain here
-  },
+  // preview: {
+  //   // Configure the preview server (used when you run `npm run preview`)
+  //   port: 4173,  
+  //   allowedHosts: ['web.example.com', 'localhost', '0.0.0.0'], // Add your domain here
+  // },
 })
