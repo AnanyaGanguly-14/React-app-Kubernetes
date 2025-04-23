@@ -18,10 +18,5 @@ spec:
         - name: react-app
           image: kubernetesappdevelopment.azurecr.io/myreact-app:latest  # Replace with your ACR image path
           ports:
-            - containerPort: 80  # React app will be served on port 80 by Nginx
-          env:
-            - name: DOTNET_APP_SERVICE
-              value: "node-app.default.svc.cluster.local"  # Fully qualified domain name of the service
-            - name: DOTNET_APP_SERVICE_PORT
-              value: "3002"  # Port exposed by your .NET Core service
+            - containerPort: 80  # React app will be served on port 80 by Ngin
 
