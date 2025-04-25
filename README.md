@@ -30,3 +30,7 @@ helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm install
 ----------------
 helm install nginx-ingress ingress-nginx/ingress-nginx --namespace ingress-basic --create-namespace
+
+helm get ns
+-----------------------
+kubectl get ns
