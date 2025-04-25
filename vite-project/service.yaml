@@ -9,4 +9,3 @@ spec:
     - protocol: TCP
       port: 80          # Exposed port (what clients connect to)
       targetPort: 80    # Container's port (what NGINX inside the pod listens on)
-  type: LoadBalancer     # Makes the service accessible **externally** with a public IP (on AKS)

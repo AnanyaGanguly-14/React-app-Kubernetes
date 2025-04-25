@@ -13,8 +13,8 @@ function GetName() {
     //     bookName: string;
     //     // Define any other properties from the response as needed
     // }
-
-    const apiUrl = (window as any)._env_?.VITE_API_URL;
+    var VITE_API_URL = "/api";
+    const apiUrl = VITE_API_URL;
     ; // Get the backend API URL from environment variable
 
     // Fetch user names from the backend API (example: /api/users)
@@ -26,7 +26,7 @@ function GetName() {
             return;
         }
 
-        axios.get(`${apiUrl}/api/users`, {
+        axios.get(`${apiUrl}/users`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
