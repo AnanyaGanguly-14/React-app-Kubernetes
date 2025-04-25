@@ -20,10 +20,13 @@ Helm install
 winget install Helm.Helm
  
 Login to cluster
+----------------
 az aks get-credentials --resource-group Kuberenetes_RG --name KubeClusterForDev1 --overwrite-existing
 
 helm add
+----------------
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
 helm install
+----------------
 helm install nginx-ingress ingress-nginx/ingress-nginx --namespace ingress-basic --create-namespace
