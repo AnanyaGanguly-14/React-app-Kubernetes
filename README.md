@@ -15,6 +15,15 @@ ABC
 ---------------------------------------------
 k8s.gcr.io/ingress-nginx/controller:v1.6.0
 
-F0425 14:27:33.239334       7 main.go:99] No namespace with name default found: namespaces "default" is forbidden: User "system:serviceaccount:ingress-nginx:nginx-ingress-serviceaccount" cannot get resource "namespaces" in API group "" in the namespace "default"
+Helm install
+--------------
+winget install Helm.Helm
+ 
+Login to cluster
+az aks get-credentials --resource-group Kuberenetes_RG --name KubeClusterForDev1 --overwrite-existing
 
-F0425 14:37:56.371131       8 main.go:123] Unexpected error obtaining ingress-nginx pod: unable to get POD information (missing POD_NAME or POD_NAMESPACE environment variable
+helm add
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+
+helm install
+helm install nginx-ingress ingress-nginx/ingress-nginx --namespace ingress-basic --create-namespace
