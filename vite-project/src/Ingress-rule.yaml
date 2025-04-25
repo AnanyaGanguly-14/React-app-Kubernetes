@@ -2,10 +2,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: my-ingress
+  namespace: default  # Specify the namespace where your services are running
 spec:
+  ingressClassName: nginx  # Specify the Ingress class (nginx in this case)
   rules:
-  - host: my-app-example.com
-    http:
+  - http: 
       paths:
       - path: /
         pathType: Prefix
@@ -13,15 +14,12 @@ spec:
           service:
             name: react-app
             port:
-              number: 3000
-  - host: node.example.com
-    http:
-      paths:
-      - path: /api/
+              number: 80
+      - path: /api
         pathType: Prefix
         backend:
           service:
             name: node-app
             port:
-              number: 3200
+              number: 80
 

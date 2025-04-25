@@ -50,7 +50,7 @@ function GetName() {
             return;
         }
 
-        axios.get(`${apiUrl}/api/Values`, {
+        axios.get(`${apiUrl}/Values`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
